@@ -1,0 +1,40 @@
+<header
+  class="ampstart-headerbar fixed flex justify-start items-center top-0 left-0 right-0 pl2 pr4 "
+>
+  <div
+    role="button"
+    aria-label="open sidebar"
+    on="tap:header-sidebar.toggle"
+    tabindex="0"
+    class="ampstart-navbar-trigger md-hide lg-hide pr2  "
+  >
+    ☰
+  </div>
+  <a
+    href="/"
+    class="text-decoration-none inline-block mx-auto ampstart-headerbar-home-link"
+  >
+    <div class="ampstart-headerbar-title mx-auto ">{{ .Site.Title }}</div>
+  </a>
+  <nav class="ampstart-headerbar-nav ampstart-nav  xs-hide sm-hide">
+    <ul class="list-reset center m0 p0 flex justify-center nowrap">
+      <li class="ampstart-nav-item ">
+        <a href="/about/" class="text-decoration-none block">About</a>
+      </li>
+      <li class="ampstart-nav-item ampstart-nav-dropdown relative">
+        <amp-accordion layout="container" disable-session-states="" class="ampstart-dropdown absolute top-0 left-0 right-0 bottom-0">
+          <section>
+            <header>Categories</header>
+            <ul class="ampstart-dropdown-items list-reset m0 p0">
+              {{ range $key, $value := .Site.Taxonomies.categories }}
+                <li class="ampstart-dropdown-item ampstart-header-dropdown-item">
+                  <a href="/categories/{{ $key }}" class="text-decoration-none">{{ $key }}</a>
+                </li>
+              {{ end }}
+            </ul>
+          </section>
+        </amp-accordion>
+      </li>
+    </ul>
+  </nav>
+</header>

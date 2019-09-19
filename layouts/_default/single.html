@@ -1,0 +1,68 @@
+{{ define "main" }}
+<article class="single-article">
+  <header>
+    <a href="/categories/{{ .Params.Categories | urlize }}"><span class="ampstart-subtitle block px3 pt2 mb2"><i class="fas fa-folder">{{ .Params.Categories }}</i></span></a>
+    {{ if isset .Params "tags" }}
+      {{ range $tag := .Params.tags }}
+      <a href="/tags/{{ $tag | urlize }}"><span class="ampstart-subtitle ml3 pt2 mb2"><i class="fas fa-tag">{{ $tag | title }}</i></span></a>
+      {{ end }}
+    {{ end }}
+
+    <h1 class="mb1 px3">{{ .Title }}</h1>
+
+    <!-- Start byline -->
+    <address class="ampstart-byline clearfix mb1 px3 h5">
+      <time class="ampstart-byline-pubdate block bold my1" datetime="2016-12-13"
+        >{{ .Date.Format "Jan 2, 2006" }}</time
+      >
+    </address>
+    <!-- End byline -->
+  </header>
+  <div class="px3">
+    {{ if isset .Params "eyecatch" }}
+      <amp-img
+        src="/images/eyecatches/{{ .Params.eyecatch }}"
+        width="1280"
+        height="853"
+        layout="responsive"
+        alt="The final spritzer"
+        class="mb4 mx3"
+      ></amp-img>
+    {{ end }}
+
+    {{ if isset .Params "youtube" }}
+      <amp-youtube data-videoid="{{ .Params.Youtube }}" layout="responsive" width="560" height="315">
+      </amp-youtube>
+    {{ end }}
+
+    {{ .Content }}
+
+  </div>
+  <footer class="my4">
+
+  <ul
+    class="ampstart-social-follow list-reset flex justify-around items-center flex-wrap"
+  >
+    <li>
+      <amp-social-share type="twitter"></amp-social-share>
+    </li>
+    <li>
+      <amp-social-share
+        type="facebook"
+        data-param-href="{{ .Permalink }}"
+        data-param-app_id="1011152812236153"
+      >
+      </amp-social-share>
+    </li>
+    <li>
+      <amp-social-share
+        type="hatena_bookmark"
+        layout="container"
+        data-share-endpoint="http://b.hatena.ne.jp/append?{{ .Permalink }}">
+        B!
+      </amp-social-share>
+    </li>
+  </ul>
+  </footer>
+</article>
+{{ end }}

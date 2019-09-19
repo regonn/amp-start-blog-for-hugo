@@ -1,0 +1,32 @@
+<!doctype html>
+<html ⚡="">
+  {{- partial "head.html" . -}}
+  <body class="land-see">
+    <amp-auto-ads type="adsense"
+      data-ad-client="ca-pub-2988052208509124">
+    </amp-auto-ads>
+    <amp-analytics type="googleanalytics" id="analytics1">
+      <script type="application/json">
+        {
+          "vars": {
+            "account": "UA-115619813-8"
+          },
+          "triggers": {
+            "trackPageview": {
+              "on": "visible",
+              "request": "pageview"
+            }
+          }
+        }
+      </script>
+    </amp-analytics>
+
+    {{- partial "amp-animation.html" . -}}
+    {{- partial "header.html" . -}}
+    {{- partial "sidebar.html" . -}}
+    <main id="content" role="main" class="">
+    {{- block "main" . }}{{- end }}
+    </main>
+    {{- partial "footer.html" . -}}
+  </body>
+</html>

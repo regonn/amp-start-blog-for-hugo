@@ -1,0 +1,40 @@
+{{ define "main" }}
+<article class="single-article">
+  <header>
+    <h1 class="py2 px3">{{ .Title }}</h1>
+  </header>
+  <div class="px3">
+    {{ if isset .Params "eyecatch" }}
+      <amp-img
+        src="/images/eyecatches/{{ .Params.eyecatch }}"
+        width="1280"
+        height="853"
+        layout="responsive"
+        alt="The final spritzer"
+        class="mb4 mx3"
+      ></amp-img>
+    {{ end }}
+
+    {{ if isset .Params "youtube" }}
+      <amp-youtube data-videoid="{{ .Params.Youtube }}" layout="responsive" width="560" height="315">
+      </amp-youtube>
+    {{ end }}
+
+    {{ .Content }}
+
+  </div>
+  <footer class="my4">
+
+  <ul
+    class="ampstart-social-follow list-reset flex justify-around items-center flex-wrap"
+  >
+    <li>
+      <amp-social-share type="twitter"></amp-social-share>
+    </li>
+    <li>
+      <amp-social-share type="facebook"></amp-social-share>
+    </li>
+  </ul>
+  </footer>
+</article>
+{{ end }}

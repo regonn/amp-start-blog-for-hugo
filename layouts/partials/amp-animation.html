@@ -1,0 +1,19 @@
+<amp-animation id="recentSlideIn" layout="nodisplay">
+  <script type="application/json">
+    {
+      "duration": ".4s",
+      "easing": "ease-in",
+      "fill": "both",
+      "direction": "alternate",
+      "animations": [
+        {
+          "selector": ".land-see-recent",
+          "delay": "calc(100ms * index())",
+          "keyframes": [
+            {"transform": "translateY(0)", "opacity": 1}
+          ]
+        }
+      ]
+    }
+  </script>
+</amp-animation>

@@ -1,0 +1,133 @@
+<head>
+  <meta charset="utf-8">
+  <title>
+    {{ if .IsPage }}
+      {{ .Page.Title }}
+    {{ else }}
+      {{ .Site.Title }}
+    {{ end }}
+  </title>
+
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <meta name="amp-google-client-id-api" content="googleanalytics">
+  <meta name="p:domain_verify" content="3d4df98d17f43ed0d9aa678f0709f162"/>
+
+  <script async="" src="https://cdn.ampproject.org/v0.js"></script>
+
+  <style amp-boilerplate="">body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate="">body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+  <link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.png">
+
+  <script custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js" async=""></script>
+  <script custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" async=""></script>
+  <script custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js" async=""></script>
+  <script custom-element="amp-instagram" src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js" async=""></script>
+  <script custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js" async=""></script>
+  <script custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js" async=""></script>
+  <script custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js" async=""></script>
+  <script custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js" async=""></script>
+  <script custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js" async=""></script>
+  <script custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js" async=""></script>
+  <script custom-element="amp-fx-flying-carpet" src="https://cdn.ampproject.org/v0/amp-fx-flying-carpet-0.1.js" async=""></script>
+  <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+  <script async custom-element="amp-analytics"
+    src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+  <script custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js" async=""></script>
+  <script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>
+
+  {{ if .IsPage }}
+
+  {{ else }}
+    <script custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js" async=""></script>
+  {{ end }}
+
+  {{ if .IsPage }}
+    {{ $description := .Params.desc }}
+    <!-- Page Author & Description -->
+    <meta name="author" content="{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }}" />
+    <meta name="description" content="{{ $description | plainify }}">
+
+    <!-- Twitter Card -->
+    {{ if isset .Params "eyecatch" }}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@{{ .Site.Params.twitter }}" />
+      <meta name="twitter:title" content="{{ .Title }}" />
+      <meta name="twitter:description" content="{{ $description | plainify }}" />
+      <meta name="twitter:image" content="/images/eyecatches/{{ .Params.eyecatch }}" />
+    {{ else }}
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@{{ .Site.Params.twitter }}" />
+      <meta name="twitter:title" content="{{ .Title }}" />
+      <meta name="twitter:description" content="{{ $description | plainify }}" />
+      <meta name="twitter:image" content="/img/avatar.png" />
+    {{ end }}
+
+  {{ else }}
+
+    <!-- Site Author & Description -->
+    <meta name="author" content="{{ .Site.Params.author }}" />
+    <meta name="description" content="{{ .Site.Params.description }}" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@{{ .Site.Params.twitter }}" />
+    <meta name="twitter:title" content="{{ if isset .Site.Params "seotitle" }}{{ .Site.Params.seotitle }}{{ else }}{{ .Site.Title }}{{ end }}" />
+    <meta name="twitter:description" content="{{ .Site.Params.description }}" />
+    <meta name="twitter:image" content="/img/avatar.png" />
+
+  {{ end }}
+
+  {{ if .Params.Gist }}
+    <script async custom-element="amp-gist" src="https://cdn.ampproject.org/v0/amp-gist-0.1.js"></script>
+  {{ end }}
+
+  <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Montserrat:400,500,600,700|Crimson+Text:400,600" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
+  <style amp-custom>{{ partial "stylesheet" | safeCSS }}</style>
+
+  <script type="application/ld+json">
+    {{ if .IsPage }}
+      {
+        "@context": "http://schema.org",
+        "@type": "TechArticle",
+        "headline": "{{ .Title }}",
+        "image": "{{ .Site.BaseURL }}/images/eyecatches/{{ if isset .Params "eyecatch" }}{{ .Params.Eyecatch }}{{ else }}avatar.png{{ end }}",
+        "datePublished": "{{ .Page.Date.Format "2006-01-02" }}",
+        "dateModified": "{{ .Page.Date.Format "2006-01-02" }}",
+        "mainEntityOfPage": "{{ .Permalink }}",
+        "author": {
+          "@type": "Person",
+          "name": "regonn"
+        },
+        "description": "{{ .Page.Params.Desc }}",
+        "url": "{{ .Permalink }}",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Haizine Lab.",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "{{ .Site.BaseURL }}/images/eyecatches/avatar.png"
+          }
+        }
+      }
+    {{ else }}
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "name": "{{ .Site.Title }}",
+        "image": [
+          "{{ .Site.BaseURL }}/images/eyecatches/avatar.png"
+        ],
+        "url": "{{ .Site.BaseURL }}",
+        "description": "{{ .Site.Params.Description }}"
+      }
+    {{ end }}
+  </script>
+
+</head>

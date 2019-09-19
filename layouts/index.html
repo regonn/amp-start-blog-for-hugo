@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="land-see-recent-content relative mx-auto py4">
+  <div class="clearfix pt2">
+    <amp-position-observer on="enter:recentSlideIn.start" layout="nodisplay">
+    </amp-position-observer>
+    <ul class="list-reset m0 p0 center justify-center fit">
+      {{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") (index .Site.Params "paginate" | default 6) }}
+      {{ range $paginator.Pages.ByDate.Reverse }}
+        {{ .Render "summary" }}
+      {{ end }}
+    </ul>
+  </div>
+  <nav class="pagination">
+    {{ if $paginator.HasPrev }}
+      <a class="pagination-btn" href="{{ $paginator.Prev.URL }}">← Newer Posts</a>
+    {{ end }}
+    {{ if $paginator.HasNext }}
+      <a class="pagination-btn next" href="{{ $paginator.Next.URL }}">Older Posts →</a>
+    {{ end }}
+  </nav>
+</section>
+{{ end }}

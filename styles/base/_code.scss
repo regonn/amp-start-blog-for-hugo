@@ -1,0 +1,20 @@
+pre,
+code {
+  border-radius: 3px;
+  background-color: #fff5f0;
+}
+
+code {
+  padding: 1px 5px;
+}
+
+pre {
+  padding: 8px 12px;
+  overflow-x: auto;
+
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}

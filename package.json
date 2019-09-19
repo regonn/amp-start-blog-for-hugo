@@ -1,0 +1,32 @@
+{
+  "name": "amp-start-blog",
+  "version": "1.0.0",
+  "description": "hugo amp theme",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ./index.js",
+    "watch": "./node_modules/.bin/nodemon -e sass,scss,css -w ./ -x npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/regonn/amp-start-blog-for-hugo.git"
+  },
+  "keywords": [
+    "hugo",
+    "amp",
+    "theme"
+  ],
+  "author": "regonn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/regonn/amp-start-blog-for-hugo/issues"
+  },
+  "homepage": "https://github.com/regonn/amp-start-blog-for-hugo#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "cssnano": "^4.1.10",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.2",
+    "postcss": "^7.0.18"
+  }
+}

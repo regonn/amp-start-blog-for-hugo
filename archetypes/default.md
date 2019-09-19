@@ -1,0 +1,3 @@
+---
+eyecatch: 'avatar.png'
+---
