@@ -18,9 +18,9 @@
 
   <style amp-boilerplate="">body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate="">body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 
-  <link rel="icon" href="/img/favicon.ico" />
-<meta name="apple-mobile-web-app-capable" content="yes">
-<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.png">
+  <link rel="icon" href="{{ .Site.BaseURL }}img/favicon.ico" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" sizes="120x120" href="{{ .Site.BaseURL }}img/avatar.png">
 
   <script custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js" async=""></script>
   <script custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" async=""></script>
@@ -58,13 +58,13 @@
       <meta name="twitter:site" content="@{{ .Site.Params.twitter }}" />
       <meta name="twitter:title" content="{{ .Title }}" />
       <meta name="twitter:description" content="{{ $description | plainify }}" />
-      <meta name="twitter:image" content="/images/eyecatches/{{ .Params.eyecatch }}" />
+      <meta name="twitter:image" content="{{ .Site.BaseURL }}images/eyecatches/{{ .Params.eyecatch }}" />
     {{ else }}
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@{{ .Site.Params.twitter }}" />
       <meta name="twitter:title" content="{{ .Title }}" />
       <meta name="twitter:description" content="{{ $description | plainify }}" />
-      <meta name="twitter:image" content="/img/avatar.png" />
+      <meta name="twitter:image" content="{{ .Site.BaseURL }}img/avatar.png" />
     {{ end }}
 
   {{ else }}
@@ -78,7 +78,7 @@
     <meta name="twitter:site" content="@{{ .Site.Params.twitter }}" />
     <meta name="twitter:title" content="{{ if isset .Site.Params "seotitle" }}{{ .Site.Params.seotitle }}{{ else }}{{ .Site.Title }}{{ end }}" />
     <meta name="twitter:description" content="{{ .Site.Params.description }}" />
-    <meta name="twitter:image" content="/img/avatar.png" />
+    <meta name="twitter:image" content="{{ .Site.BaseURL }}img/avatar.png" />
 
   {{ end }}
 
@@ -98,7 +98,7 @@
         "@context": "http://schema.org",
         "@type": "TechArticle",
         "headline": "{{ .Title }}",
-        "image": "{{ .Site.BaseURL }}/images/eyecatches/{{ if isset .Params "eyecatch" }}{{ .Params.Eyecatch }}{{ else }}avatar.png{{ end }}",
+        "image": "{{ .Site.BaseURL }}images/eyecatches/{{ if isset .Params "eyecatch" }}{{ .Params.Eyecatch }}{{ else }}avatar.png{{ end }}",
         "datePublished": "{{ .Page.Date.Format "2006-01-02" }}",
         "dateModified": "{{ .Page.Date.Format "2006-01-02" }}",
         "mainEntityOfPage": "{{ .Permalink }}",
@@ -113,7 +113,7 @@
           "name": "Haizine Lab.",
           "logo": {
             "@type": "ImageObject",
-            "url": "{{ .Site.BaseURL }}/images/eyecatches/avatar.png"
+            "url": "{{ .Site.BaseURL }}images/eyecatches/avatar.png"
           }
         }
       }
@@ -123,7 +123,7 @@
         "@type": "WebSite",
         "name": "{{ .Site.Title }}",
         "image": [
-          "{{ .Site.BaseURL }}/images/eyecatches/avatar.png"
+          "{{ .Site.BaseURL }}images/eyecatches/avatar.png"
         ],
         "url": "{{ .Site.BaseURL }}",
         "description": "{{ .Site.Params.Description }}"
